@@ -1,0 +1,19 @@
+[project]
+name = "dingo-eccentricity-o4a"
+version = "0.1.0"
+description = "Data release for DINGO O4a eccentricity paper — plot reproduction"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "pandas",
+    "h5py",
+    "tables",
+    "arviz",
+    "astropy",
+    "dill",
+    "shapely",
+    "jupyter",
+    "ipykernel",
+]
