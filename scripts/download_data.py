@@ -24,7 +24,7 @@ def get_zenodo_file_urls():
     url = f"https://zenodo.org/api/records/{ZENODO_RECORD_ID}"
     with urllib.request.urlopen(url) as resp:
         record = json.loads(resp.read())
-    return {f["key"]: f["links"]["self"] for f in record["files"]]
+    return {f["key"]: f["links"]["self"] for f in record["files"]}
 
 
 def download_file(url, dest_path):
