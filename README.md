@@ -1,7 +1,12 @@
 # DINGO Eccentricity O4a — Figure & Data Release
 
+[![Data DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19340011.svg)](https://doi.org/10.5281/zenodo.19340011)
+[![Code DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21221948.svg)](https://doi.org/10.5281/zenodo.21221948)
+
 Code + data to reproduce **every** figure, table, and number in the O4a
-eccentricity paper from the **shipped data products**.
+eccentricity paper from the **shipped data products**. The data are archived
+on Zenodo ([doi:10.5281/zenodo.19340011](https://doi.org/10.5281/zenodo.19340011));
+this code is archived at [doi:10.5281/zenodo.21221948](https://doi.org/10.5281/zenodo.21221948).
 
 ## Setup
 
