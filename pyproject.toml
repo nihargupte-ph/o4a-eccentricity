@@ -1,9 +1,10 @@
 [project]
-name = "dingo-eccentricity-o4a"
-version = "0.1.0"
-description = "Data release for DINGO O4a eccentricity paper — plot reproduction"
-requires-python = ">=3.10"
+name = "dingo-eccentricity-o4a-release"
+version = "0.2.0"
+description = "Data + figure release for the DINGO O4a eccentricity paper (event posteriors, selection function, and the hierarchical velocity-dispersion / branching-fraction posteriors)."
+requires-python = ">=3.10,<3.12"   # upper bound imposed by dingo-gw
 dependencies = [
+    # plotting / data-handling (figure notebooks)
     "numpy",
     "scipy",
     "matplotlib",
@@ -16,4 +17,23 @@ dependencies = [
     "shapely",
     "jupyter",
     "ipykernel",
+    "corner",
+    # gwpopulation: the GWTC-4 mass model (models/mass.py) evaluated at plot time by
+    # gwtc4_population.ipynb. jax/bilby support the p_draw / PE regen pipeline.
+    "jax",
+    "jaxlib",
+    "bilby",
+    "gwpopulation",
+    "glasflow",
+    "threadpoolctl",
+    # waveform / GW selection generation (p_draw + PE regen, in the analysis tree).
+    # dingo-gw[pyseobnr] pulls in lalsuite (lal/lalsimulation) as a core dependency
+    # and pyseobnr (the SEOBNRv5EHM waveform) via its extra, so the whole pipeline
+    # lives in one env. Only needed to RE-RUN the selection pipeline / regenerate the
+    # p_draw injection set + reweighted PE caches — not for the released-data figures.
+    # Pinned to the SEOBNRv5EHM branch (dingo-gw/dingo#332) via [tool.uv.sources].
+    "dingo-gw[pyseobnr]",
 ]
+
+[tool.uv.sources]
+dingo-gw = { git = "https://github.com/dingo-gw/dingo.git", branch = "seobnrv5ehm" }
